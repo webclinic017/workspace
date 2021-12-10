@@ -1,6 +1,9 @@
 import pygame
+import os
 
 pygame.init() # 초기화 (반드시 필요)
+
+curr_path = os.path.dirname(os.path.realpath(__file__))
 
 # 화면 크기 설정
 screen_width = 480 # 가로 크©기
@@ -15,10 +18,10 @@ pygame.display.set_caption("Nado Game") # 게임 이름
 clock = pygame.time.Clock()
 
 # 배경 이미지 불러오기
-background = pygame.image.load("/Users/joon/git/myWorkspace/python/mystudy/pygame_basic/background.jpg")
+background = pygame.image.load(os.path.join(os.path.dirname(__file__), "background.jpg"))
 
 # 캐릭터(스프라이트) 불러오기
-character = pygame.image.load("/Users/joon/git/myWorkspace/python/mystudy/pygame_basic/character.jpg")
+character = pygame.image.load(os.path.join(os.path.dirname(__file__), "character.jpg"))
 character_size = character.get_rect().size  # 이미지의 크기를 구해옴
 character_width = character_size[0]     # 캐릭터의 가로 크기
 character_height = character_size[1]    # 캐릭터의 세로 크기
@@ -33,7 +36,7 @@ to_y = 0
 character_speed = 0.6
 
 # 적 enemy 캐릭터
-enemy = pygame.image.load("/Users/joon/git/myWorkspace/python/mystudy/pygame_basic/enemy.jpg")
+enemy = pygame.image.load(os.path.join(os.path.dirname(__file__),"enemy.jpg"))
 enemy_size = enemy.get_rect().size  # 이미지의 크기를 구해옴
 enemy_width = enemy_size[0]     # 캐릭터의 가로 크기
 enemy_height = enemy_size[1]    # 캐릭터의 세로 크기
