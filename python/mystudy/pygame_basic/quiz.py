@@ -18,6 +18,8 @@ clock = pygame.time.Clock()
 #############################################################
 
 # 1. 사용자 게임 초기화 (베경 화면, 게임이미지, 좌표, 속도, 폰트 등)
+
+# 캐릭터 만들기
 character = pygame.image.load("/Users/joon/git/myWorkspace/python/mystudy/pygame_basic/character.jpg")
 character_size = character.get_rect().size  # 이미지의 크기를 구해옴
 character_width = character_size[0]     # 캐릭터의 가로 크기
@@ -25,14 +27,18 @@ character_height = character_size[1]    # 캐릭터의 세로 크기
 character_x_pos = (screen_width / 2) - (character_width / 2)
 character_y_pos = screen_height - character_height
 
+# 이동 위치
 to_x = 0
 character_speed = 10
 
+# 똥 만들기
 enemy = pygame.image.load("/Users/joon/git/myWorkspace/python/mystudy/pygame_basic/enemy.jpg")
 enemy_size = enemy.get_rect().size  # 이미지의 크기를 구해옴
 enemy_width = enemy_size[0]     # 캐릭터의 가로 크기
 enemy_height = enemy_size[1]    # 캐릭터의 세로 크기
+enemy_x_pos = randint(0, screen_width - enemy_width)
 enemy_y_pos = 0
+enemy_speed = 10
 
 running = True
 while running:
@@ -53,16 +59,21 @@ while running:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 to_x = 0
 
-    character_x_pos += to_x
+    
 
     # 3. 게임 캐릭터 위치 정의
-    # 가로 경계값 처리
+    character_x_pos += to_x
+    
     if character_x_pos < 0:
         character_x_pos = 0
     elif character_x_pos > screen_width - character_width:
         character_x_pos = screen_width - character_width
         
-    enemy_x_pos = randint(0, (screen_width - enemy_width))
+    # enemy_x_pos = randint(0, (screen_width - enemy_width))
+    enemy_y_pos += enemy_speed
+    if enemy_y_pos > screen_height:
+        enemy_y_pos = 0
+        enemy_x_pos = randint(0, screen_width - enemy_width)
 
     # 4. 충돌 처리
     character_rect = character.get_rect()
@@ -76,6 +87,7 @@ while running:
     if character_rect.colliderect(enemy_rect):
         print("충돌했어요")
         running = False
+    
     
     # 5. 화면에 그리기
     screen.fill((0, 0, 0))
