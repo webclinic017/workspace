@@ -5,26 +5,19 @@ root = Tk()
 root.title("Nado GUI")
 root.geometry("640x480") # 가로 * 세로
 
-listbox = Listbox(root, selectmode="extended", height=0)
-listbox.insert(0, "사과")
-listbox.insert(1, "딸기")
-listbox.insert(2, "바나나")
-listbox.insert(END, "수박")
-listbox.insert(END, "포도")
-listbox.pack()
+chkvar = IntVar()   # chkvar에 int형으로 값을 저장한다
+checkbox = Checkbutton(root, text="오늘 하루 보지 않기", variable=chkvar)
+# checkbox.select()   # 자동 선택 처리
+# checkbox.deselect() # 선택 해제 처리
+checkbox.pack()
+
+chkvar2 = IntVar()
+checkbox2 = Checkbutton(root, text="일주일동안 보지 않기", variable=chkvar2)
+checkbox2.pack()
 
 def btncmd():
-    # 삭제
-    # listbox.delete(0) # 맨 앞에 항목을 삭제
-    
-    # 갯수 확인 
-    # print("리스트에는", listbox.size(), "개가 있어요")
-    
-    # 항목 확인(시작 idx, 끝 idx)
-    print("1번째부터 3번째까지의 항목 : ", listbox.get(0, 2))
-    
-    # 선택된 항목 확인 (위치로 반환 (ex) (1, 2, 3))
-    print("선택된 항목 : ", listbox.curselection())
+    print(chkvar.get()) # 0: 체크 해제, 1: 체크
+    print(chkvar2.get())
 
 btn = Button(root, text="클릭", command=btncmd)
 btn.pack()
