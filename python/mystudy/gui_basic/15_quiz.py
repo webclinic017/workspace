@@ -1,4 +1,5 @@
 from tkinter import *
+import os
 
 root = Tk()
 root.title("제목 없음 - Windows 메모장")
@@ -6,13 +7,17 @@ root.geometry("640x480")
 
 menu = Menu(root)
 
+filepath = os.path.join(os.path.dirname(__file__), "mynote.txt")
+
 def open_file():
-    with open("mynote.txt", "r") as f:
-        f.read()
+    if os.path.isfile(filepath):    # 파일 있으면 True, 없으면 False
+        with open(filepath, "r", encoding="utf8") as f:
+            txt.delete("1.0", END)  # 텍스트 위젯 본문 삭제
+            txt.insert(END, f.read())   # 파일 내용을 본문에 입력
 
 def save_file():
-    with open("mynote.txt", "w") as f:
-        f.write()
+    with open(filepath, "w", encoding="utf8") as f:
+        f.write(txt.get("1.0", END))    # 모든 내용을 가져와서 저ㅇ
 
 def exit():
     root.quit()
