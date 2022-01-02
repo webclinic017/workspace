@@ -1,6 +1,14 @@
 from tkinter import *
 import os
 
+def resource_path(realtive_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+        
+    return os.path.join(base_path, realtive_path)
+
 root = Tk()
 root.title("Nado GUI")
 root.geometry("640x480") # 가로 * 세로
