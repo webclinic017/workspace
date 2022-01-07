@@ -73,7 +73,7 @@ elem.click()
 browser.save_screenshot('daum.png')
 
 # 페이지 소스 보기
-browser.page_source
+browser.page_source 
 
 browser.get("http://daum.net")
 
