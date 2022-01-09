@@ -22,30 +22,3 @@
 # 1   유재석  9429
 # 2   박명수  2463
 # 3   정형돈  9236
-
-
-from account import *
-import smtplib
-from imap_tools import MailBox
-from email.message import EmailMessage
-from random import *
-
-def send_email(from_email_address, from_email_password, to_email_address, subject, msg):
-    msg = EmailMessage()
-    msg["Subject"] = subject
-    msg["From"] = from_email_address
-    msg["To"] = to_email_address
-    msg.set_content(msg)
-    
-    with smtplib.SMTP("smtp.google.com", 587) as smtp:
-        smtp.ehlo()
-        smtp.starttls()
-        smtp.login(from_email_address, from_email_password)
-        smtp.send_message(msg)    
-        
-subject = "파이썬 특강 신청합니다."
-nickname = "유재석"
-phone_number = randint(1000, 9999)
-
-content = f"{nickname}/{phone_number}"
-send_email(EMAIL_ADDRESS, EMAIL_PASSWORD, EMAIL_ADDRESS, subject, content)
