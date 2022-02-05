@@ -1,4 +1,5 @@
 import pygame
+import os
 from random import *
 
 #############################################################
@@ -18,9 +19,11 @@ clock = pygame.time.Clock()
 #############################################################
 
 # 1. 사용자 게임 초기화 (베경 화면, 게임이미지, 좌표, 속도, 폰트 등)
+current_path = os.path.dirname(__file__)    # 현재 파일의 위치 반환
+image_path = os.path.join(current_path, "images") # images 폴더 위치 반환
 
 # 캐릭터 만들기
-character = pygame.image.load("/Users/joon/git/myWorkspace/python/mystudy/pygame_basic/character.jpg")
+character = pygame.image.load(os.path.join(image_path, "character.jpg"))
 character_size = character.get_rect().size  # 이미지의 크기를 구해옴
 character_width = character_size[0]     # 캐릭터의 가로 크기
 character_height = character_size[1]    # 캐릭터의 세로 크기
@@ -32,7 +35,7 @@ to_x = 0
 character_speed = 10
 
 # 똥 만들기
-enemy = pygame.image.load("/Users/joon/git/myWorkspace/python/mystudy/pygame_basic/enemy.jpg")
+enemy = pygame.image.load(os.path.join(image_path, "enemy.jpg"))
 enemy_size = enemy.get_rect().size  # 이미지의 크기를 구해옴
 enemy_width = enemy_size[0]     # 캐릭터의 가로 크기
 enemy_height = enemy_size[1]    # 캐릭터의 세로 크기
