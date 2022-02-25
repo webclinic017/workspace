@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            width:800px;
+            border: 1px solid gray;
+        }
+        header{
+            border-bottom: 1px solid gray;
+            padding-left: 20px;
+        }
+        footer{
+            border-top: 1px solid gray;
+            padding: 20px;
+            text-align: center;
+        }
+        .content{
+            display: flex;
+        }
+        .content nav{
+            border-right: 1px solid gray;
+        }
+        .content aside{
+            border-left: 1px solid gray;
+        }
+        nav, aside{
+            flex-basis: 150px;
+            flex-shrink: 0;
+        }
+        main{
+            padding: 10px;
+        }
+        nav{
+            order: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>생활코딩</h1>
+        </header>
+        <section class="content">
+            
+            <main>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae eaque saepe adipisci possimus voluptates maxime voluptatem pariatur fugit? Molestias sunt sequi adipisci autem, vitae nesciunt ex perferendis dignissimos minima ullam ratione accusamus velit? Provident dignissimos architecto ducimus placeat rerum quaerat, soluta voluptatibus beatae quidem! Iste quasi autem cumque beatae quae? Reprehenderit temporibus voluptate, corporis deserunt dolorum perferendis ad. Assumenda voluptates veniam omnis laboriosam, harum placeat est dignissimos amet provident quos tempore nobis, consequatur atque sapiente illo nemo laborum earum sunt ea repellat? Error laborum cupiditate porro, quas, deserunt perferendis a inventore reiciendis nam sapiente praesentium nisi libero accusantium dolorum quae iure? Quisquam incidunt, aspernatur explicabo, neque veniam quas perferendis sint, aut molestiae voluptatibus in eveniet facere minima esse! Praesentium eligendi autem, ullam iusto omnis vitae mollitia pariatur harum dignissimos perspiciatis alias, provident, ipsum deserunt. Eligendi cumque ullam iusto quasi cupiditate neque inventore iure sint, alias, consequatur consectetur, omnis ipsam excepturi nisi! Optio, ab soluta tenetur commodi expedita deleniti non quas hic corrupti inventore, reprehenderit odit cupiditate similique recusandae, id veniam libero delectus? 
+            </main>
+            <nav>
+                <ul>
+                    <li>html</li>
+                    <li>css</li>
+                    <li>javascript</li>
+                </ul>
+            </nav>
+            <aside>
+                AD
+            </aside>
+        </section>
+        <footer>
+            <a href="https://opentutorials.org/course/1">홈페이지</a>
+        </footer>
+    </div>
+</body>
+</html>
