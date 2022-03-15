@@ -14,7 +14,7 @@ class MyStrategy(bt.Strategy):
                     
 cerebro = bt.Cerebro()
 cerebro.addstrategy(MyStrategy)
-data = bt.feeds.YahooFinanceData(dataname='036570.KS', fromdate=datetime(2017, 1, 1), todate=datetime(2020,12,1))
+data = bt.feeds.YahooFinanceData(dataname='035420.KS', fromdate=datetime(2017, 1, 1), todate=datetime(2020,12,1))
 cerebro.adddata(data)
 cerebro.broker.setcash(1000000)
 cerebro.addsizer(bt.sizers.SizerFix, stake=30)
