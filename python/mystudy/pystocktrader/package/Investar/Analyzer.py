@@ -8,11 +8,11 @@ import re
 class MarketDB:
     def __init__(self):
         """생성자: MariaDB 연결 및 종목코드 딕셔너리 생성"""
-        self.conn = pymysql.connect(host='211.201.47.31',
-                                    port=3130,
-                                    user='root',
-                                    password='tjwns0130!@#',
-                                    db='Investar',
+        self.conn = pymysql.connect(host='***.***.***.***',
+                                    port=9999,
+                                    user='*********',
+                                    password='**********',
+                                    db='*******',
                                     charset='utf8')
         self.codes = {}                                                         # 리터럴을 사용하여 생성
         self.get_comp_info()                                                    # get_comp_info() 함수를 호출하여 마리아디비에서 company_info 테이블을 읽어와서 codes에 저장한다.
